@@ -222,7 +222,7 @@
 #kolla_enable_manila_backend_cephfs_nfs:
 #kolla_enable_mariabackup:
 #kolla_enable_mistral:
-#kolla_enable_monasca:
+kolla_enable_monasca: True
 #kolla_enable_mongodb:
 #kolla_enable_multipathd:
 #kolla_enable_murano:
@@ -258,6 +258,13 @@
 #kolla_enable_vmtp:
 #kolla_enable_watcher:
 #kolla_enable_zun:
+kolla_enable_glance: False
+kolla_enable_keystone: False
+kolla_enable_neutron: False
+kolla_enable_horizon: False
+kolla_enable_nova: False
+kolla_enable_heat: False
+kolla_enable_ironic: False
 
 ###############################################################################
 # Passwords and credentials.
@@ -309,3 +316,5 @@ workaround_ansible_issue_8743: yes
 kolla_ansible_custom_passwords: >
   {{ kolla_ansible_default_custom_passwords |
      combine({'keystone_admin_password': 'correcthorsebatterystaple'}) }}
+
+kolla_enable_openstack_core: false
