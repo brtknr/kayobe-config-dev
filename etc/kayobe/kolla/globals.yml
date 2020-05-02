@@ -28,6 +28,10 @@ keystone_public_url: "{{ kolla_keystone_public_url }}"
 elasticsearch_tag: train
 logstash_tag: train
 kibana_tag: train
+# Fall back to C7 for Storm based components until this is fixed:
+# https://bugs.launchpad.net/kolla-ansible/+bug/1876461
+storm_tag: train
+monasca_thresh_tag: train
 #enable_prometheus: True
 #enable_prometheus_server: False               # <--RECENT patch for this upstream
 #enable_prometheus_haproxy_exporter: True
