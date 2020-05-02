@@ -10,6 +10,7 @@ openstack_service_workers: "1"
 
 ############### Monasca - standalone #################
 monasca_install_type: source
+monasca_grafana_server_port: 3000
 service_ks_register_interface: public
 monasca_keystone_interface: public
 monasca_control_plane_project: monasca
