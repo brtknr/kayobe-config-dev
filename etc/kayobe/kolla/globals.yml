@@ -33,15 +33,17 @@ kibana_tag: train
 # https://bugs.launchpad.net/kolla-ansible/+bug/1876461
 storm_tag: train
 monasca_thresh_tag: train
-#enable_prometheus: True
-#enable_prometheus_server: False               # <--RECENT patch for this upstream
-#enable_prometheus_haproxy_exporter: True
-#enable_prometheus_mysqld_exporter: True
-#enable_prometheus_node_exporter: True
-#enable_prometheus_memcached_exporter: True
-#enable_prometheus_cadvisor: True
-#enable_prometheus_alertmanager: False
-#enable_prometheus_ceph_mgr_exporter: True
-#enable_prometheus_openstack_exporter: True
-#enable_prometheus_elasticsearch_exporter: True
-#enable_prometheus_blackbox_exporter: True
+fluentd_tag: train
+
+enable_prometheus: True
+enable_prometheus_server: False               # <--RECENT patch for this upstream
+enable_prometheus_haproxy_exporter: True
+enable_prometheus_mysqld_exporter: True
+enable_prometheus_node_exporter: True
+enable_prometheus_memcached_exporter: True
+enable_prometheus_cadvisor: True
+enable_prometheus_alertmanager: False
+enable_prometheus_ceph_mgr_exporter: True
+enable_prometheus_openstack_exporter: True
+enable_prometheus_elasticsearch_exporter: True
+enable_prometheus_blackbox_exporter: True
