@@ -150,7 +150,7 @@
 #kolla_ansible_target_venv:
 
 # Whether TLS is enabled for the external API endpoints. Default is 'no'.
-#kolla_enable_tls_external:
+kolla_enable_tls_external: true
 
 # Whether TLS is enabled for the internal API endpoints. Default is 'no'.
 #kolla_enable_tls_internal:
@@ -283,12 +283,12 @@ kolla_enable_ironic: false
 #
 # NOTE: kolla_tls_cert has been renamed to kolla_external_tls_cert. Support for
 # the deprecated name kolla_tls_cert will be removed in a future release.
-#kolla_external_tls_cert:
+kolla_external_tls_cert: "{{ secrets_kolla_external_tls_cert }}"
 
 # Path to a CA certificate file to use for the OS_CACERT environment variable
 # in public-openrc.sh file when TLS is enabled, instead of Kolla-Ansible's
 # default.
-#kolla_external_fqdn_cacert:
+kolla_external_fqdn_cacert: "{{ kolla_config_path }}/certificates/haproxy-ca.crt"
 
 # Internal API certificate bundle.
 #
