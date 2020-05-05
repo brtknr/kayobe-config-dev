@@ -34,6 +34,21 @@ kibana_tag: train
 # https://bugs.launchpad.net/kolla-ansible/+bug/1876461
 storm_tag: train
 monasca_thresh_tag: train
+
+# Roles which grant read/write access to Monasca APIs
+monasca_default_authorized_roles:
+  - admin
+  - monasca-user
+
+# Roles which grant write access to Monasca APIs
+monasca_agent_authorized_roles:
+  - monasca-agent
+
+# Roles with read only access to the Monasca APIs
+monasca_read_only_authorized_roles:
+  - monasca-read-only-user
+  - monasca-editor
+
 #enable_prometheus: True
 #enable_prometheus_server: False               # <--RECENT patch for this upstream
 #enable_prometheus_haproxy_exporter: True
