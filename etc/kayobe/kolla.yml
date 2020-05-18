@@ -33,15 +33,15 @@
 # Path to directory for kolla-ansible source code checkout.
 # Default is $KOLLA_SOURCE_PATH, or $PWD/src/kolla-ansible if
 # $KOLLA_SOURCE_PATH is not set.
-kolla_ansible_source_path: https://github.com/stackhpc/kolla-ansible.git
+#kolla_ansible_source_path:
 
 # URL of Kolla Ansible source code repository if type is 'source'. Default is
 # https://opendev.org/openstack/kolla-ansible.
-kolla_ansible_source_url: remove_kibana_reg
+kolla_ansible_source_url: https://github.com/stackhpc/kolla-ansible.git
 
 # Version (branch, tag, etc.) of Kolla Ansible source code repository if type
 # is 'source'. Default is {{ openstack_branch }}.
-#kolla_ansible_source_version:
+kolla_ansible_source_version: remove_kibana_reg
 
 # Path to virtualenv in which to install kolla-ansible. Default is
 # $KOLLA_VENV_PATH or $PWD/venvs/kolla-ansible if $KOLLA_VENV_PATH is not set.
