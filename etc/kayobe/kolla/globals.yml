@@ -8,32 +8,9 @@ nova_compute_virt_type: qemu
 # processes to one per-service.
 openstack_service_workers: "1"
 
-############### Monasca - standalone #################
 monasca_install_type: source
+
 monasca_grafana_server_port: 3000
-service_ks_register_interface: public
-monasca_keystone_interface: public
-monasca_control_plane_project: monasca
-enable_rabbitmq: False
-monasca_openstack_auth:
-  auth_url: "{{ kolla_keystone_admin_url }}"
-  username: "admin"
-  password: "{{ kolla_external_keystone_admin_password }}"
-  project_name: "admin"
-  domain_name: "default"
-  user_domain_name: "default"
-public_openrc_auth_url: "{{ kolla_keystone_public_url }}"
-keystone_internal_url: "{{ kolla_keystone_internal_url }}"
-keystone_admin_url: "{{ kolla_keystone_admin_url }}"
-keystone_public_url: "{{ kolla_keystone_public_url }}"
-# The following do not exist for centos8
-elasticsearch_tag: train
-logstash_tag: train
-kibana_tag: train
-# Fall back to C7 for Storm based components until this is fixed:
-# https://bugs.launchpad.net/kolla-ansible/+bug/1876461
-storm_tag: train
-monasca_thresh_tag: train
 
 # Roles which grant read/write access to Monasca APIs
 monasca_default_authorized_roles:
@@ -49,15 +26,14 @@ monasca_read_only_authorized_roles:
   - monasca-read-only-user
   - monasca-editor
 
-#enable_prometheus: True
-#enable_prometheus_server: False               # <--RECENT patch for this upstream
-#enable_prometheus_haproxy_exporter: True
-#enable_prometheus_mysqld_exporter: True
-#enable_prometheus_node_exporter: True
-#enable_prometheus_memcached_exporter: True
-#enable_prometheus_cadvisor: True
-#enable_prometheus_alertmanager: False
-#enable_prometheus_ceph_mgr_exporter: True
-#enable_prometheus_openstack_exporter: True
-#enable_prometheus_elasticsearch_exporter: True
-#enable_prometheus_blackbox_exporter: True
+enable_prometheus_server: False               # <--RECENT patch for this upstream
+enable_prometheus_haproxy_exporter: True
+enable_prometheus_mysqld_exporter: True
+enable_prometheus_node_exporter: True
+enable_prometheus_memcached_exporter: True
+enable_prometheus_cadvisor: True
+enable_prometheus_alertmanager: False
+enable_prometheus_ceph_mgr_exporter: True
+enable_prometheus_openstack_exporter: True
+enable_prometheus_elasticsearch_exporter: True
+enable_prometheus_blackbox_exporter: True

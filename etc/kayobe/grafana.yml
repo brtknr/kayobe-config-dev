@@ -12,7 +12,7 @@ grafana_monitoring_node_dashboard_repo:
    "https://github.com/stackhpc/grafana-reference-dashboards.git"
 
 # Dashboard repo version. Optional, defaults to 'HEAD'.
-grafana_monitoring_node_dashboard_repo_version: "monasca_workshop"
+grafana_monitoring_node_dashboard_repo_version: "stable/train"
 
 # Path to which Grafana dashboards will be cloned to a monitoring node
 #grafana_monitoring_node_dashboard_repo_checkout_path:
@@ -24,7 +24,7 @@ grafana_monitoring_node_dashboard_repo_path: "/monasca/control_plane"
 # The Grafana organisation for the control plane. Note that for Monasca
 # Grafana with domain support the format is:
 # organisation_name@openstack_domain
-grafana_control_plane_organisation: "monasca@default"
+grafana_control_plane_organisation: "monasca_control_plane@default"
 
 # A dict of datasources to configure. See the stackhpc.grafana-conf role
 # for all supported datasources. Example:
