@@ -84,7 +84,7 @@ kolla_ansible_source_version: stackhpc/9.2.0.2
 
 # Kolla OpenStack release version. This should be a Docker image tag.
 # Default is {{ openstack_release }}.
-#kolla_openstack_release:
+#kolla_openstack_release: train-1
 
 # Dict mapping names of sources to their definitions for
 # kolla_install_type=source. See kolla.common.config for details.
@@ -101,6 +101,11 @@ kolla_ansible_source_version: stackhpc/9.2.0.2
 
 # Dict mapping Jinja2 block names in kolla's Docker images to their contents.
 #kolla_build_blocks:
+kolla_build_blocks:
+  monasca_agent_footer: |
+    # Install StackHPC custom plugins
+    RUN pip install git+https://github.com/stackhpc/stackhpc-monasca-agent-plugins.git && \
+        ln -s /var/lib/kolla/venv/lib/python3.6/site-packages/usr/lib/monasca /usr/lib
 
 # Dict mapping image customization variable names to their values.
 # Each variable takes the form:

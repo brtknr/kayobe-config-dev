@@ -26,6 +26,8 @@ monasca_read_only_authorized_roles:
   - monasca-read-only-user
   - monasca-editor
 
+monasca_agent_tag: train-1
+
 enable_prometheus_server: False               # <--RECENT patch for this upstream
 enable_prometheus_haproxy_exporter: True
 enable_prometheus_mysqld_exporter: True
