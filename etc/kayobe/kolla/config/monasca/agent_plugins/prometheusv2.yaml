@@ -1,0 +1,60 @@
+{% raw %}
+init_config:
+  timeout: 10
+instances:
+  - metric_endpoint: 'http://{{ api_interface_address }}:{{ prometheus_node_exporter_port }}/metrics'
+    counters_to_rates: True
+  - metric_endpoint: 'http://{{ api_interface_address }}:{{ prometheus_mysqld_exporter_port }}/metrics'
+    counters_to_rates: True
+  - metric_endpoint: 'http://{{ api_interface_address }}:{{ prometheus_memcached_exporter_port }}/metrics'
+    counters_to_rates: True
+  - metric_endpoint: 'http://{{ api_interface_address }}:{{ prometheus_haproxy_exporter_port }}/metrics'
+    counters_to_rates: True
+  - metric_endpoint: 'http://{{ api_interface_address }}:{{ prometheus_cadvisor_port }}/metrics'
+    remove_hostname: true
+    counters_to_rates: True
+    derived_metrics:
+      container_fs_utilised_perc:
+        x: container_fs_usage_bytes
+        y: container_fs_limit_bytes
+        op: divide
+    whitelist:
+      - container_cpu_load_average_10s
+      - container_fs_inodes_free
+      - container_fs_inodes_total
+      - container_fs_io_current
+      - container_fs_usage_bytes
+      - container_fs_limit_bytes
+      - container_fs_utilised_perc
+      - container_memory_failcnt
+      - container_memory_failures_total
+      - container_memory_usage_bytes
+      - container_memory_working_set_bytes
+      - container_memory_swap
+      - container_memory_rss
+      - container_tasks_state
+    label_whitelist:
+      - container_label_name
+      - state
+      - hostname
+      - interface
+  - metric_endpoint: 'http://{{ api_interface_address }}:{{ prometheus_openstack_exporter_port }}/metrics'
+    remove_hostname: true
+    counters_to_rates: True
+    derived_metrics: |
+      openstack_nova_vcpus_used_perc:
+        x: openstack_nova_vcpus_used
+        y: openstack_nova_vcpus_available
+        op: divide
+      openstack_nova_memory_used_perc:
+        x: openstack_nova_memory_used_bytes
+        y: openstack_nova_memory_available_bytes
+        op: divide
+      openstack_nova_local_storage_used_perc:
+        x: openstack_nova_local_storage_used_bytes
+        y: openstack_nova_local_storage_available_bytes
+        op: divide
+  - metric_endpoint: 'http://{{ api_interface_address }}:{{ prometheus_elasticsearch_exporter_port }}/metrics'
+    remove_hostname: true
+    counters_to_rates: True
+{% endraw %}
