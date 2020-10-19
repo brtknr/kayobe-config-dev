@@ -9,8 +9,8 @@
     monasca_agent_user: os-monasca-agent
     monasca_agent_password: "os-password"
     monasca_agent_project: openstack
-    monasca_agent_branch: stable/train
-    monasca_pip_extra_args: "-c https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/train"
+    monasca_agent_branch: stable/ussuri
+    monasca_pip_extra_args: "-c https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/ussuri"
     monasca_endpoint_type: public
     monasca_project_domain_name: Default
     monasca_user_domain_name: Default
